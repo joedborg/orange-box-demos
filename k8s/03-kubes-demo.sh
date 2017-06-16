@@ -8,5 +8,6 @@ OUTPUT=$(juju run-action kubernetes-worker/0 microbot replicas=5)
 echo $OUTPUT
 GUID=$(echo $OUTPUT | sed 's/Action queued with id: //g')
 
-sleep 2  # Wait for workload to start.
+echo "Sleeping for 5 to allow workload to start..."
+sleep 5
 juju show-action-output $GUID
